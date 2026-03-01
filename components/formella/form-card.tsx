@@ -10,23 +10,39 @@ export function useCardSize() { return useContext(CardSizeContext) }
 
 // カード全体のサイズ（px）
 const CARD_SIZE = {
+  xs: { width: 160, height: 160 },
   sm: { width: 240, height: 240 },
   md: { width: 360, height: 360 },
   lg: { width: 480, height: 480 },
 } as const
 
-// 安全エリアのパディング率（形状ごと）
-const SAFE_AREA_PADDING = {
-  heart: { top: '20%', left: '22%', right: '22%', bottom: '28%' },
-  circle: { top: '15%', left: '15%', right: '15%', bottom: '15%' },
-  ellipse: { top: '16%', left: '12%', right: '12%', bottom: '14%' },
-} as const
+// 安全エリアのパディング（形状・サイズごと）
+const SAFE_AREA_PADDING: Record<CardShape, Record<CardSize, { top: string; left: string; right: string; bottom: string }>> = {
+  heart: {
+    xs: { top: '22%', left: '24%', right: '24%', bottom: '30%' },
+    sm: { top: '20%', left: '22%', right: '22%', bottom: '28%' },
+    md: { top: '20%', left: '22%', right: '22%', bottom: '28%' },
+    lg: { top: '20%', left: '22%', right: '22%', bottom: '28%' },
+  },
+  circle: {
+    xs: { top: '18%', left: '18%', right: '18%', bottom: '18%' },
+    sm: { top: '15%', left: '15%', right: '15%', bottom: '15%' },
+    md: { top: '15%', left: '15%', right: '15%', bottom: '15%' },
+    lg: { top: '15%', left: '15%', right: '15%', bottom: '15%' },
+  },
+  ellipse: {
+    xs: { top: '18%', left: '14%', right: '14%', bottom: '16%' },
+    sm: { top: '16%', left: '12%', right: '12%', bottom: '14%' },
+    md: { top: '16%', left: '12%', right: '12%', bottom: '14%' },
+    lg: { top: '16%', left: '12%', right: '12%', bottom: '14%' },
+  },
+}
 
 // ハート型SVGクリップパスのID
 const HEART_CLIP_ID = "formella-heart-clip"
 
 export type CardShape = 'heart' | 'circle' | 'ellipse'
-export type CardSize = 'sm' | 'md' | 'lg'
+export type CardSize = 'xs' | 'sm' | 'md' | 'lg'
 export type CardOverflow = 'hidden' | 'scroll' | 'visible'
 
 export interface FormCardBaseProps {
@@ -58,7 +74,7 @@ export function FormCard({
   children,
 }: FormCardProps) {
   const resolved = theme ? (themes[theme] ?? defaultTheme) : defaultTheme
-  const padding = SAFE_AREA_PADDING[shape]
+  const padding = SAFE_AREA_PADDING[shape][size]
   const cardSize = CARD_SIZE[size]
 
   // テーマカラーをCSS変数として注入（個別指定があれば上書き）
@@ -100,6 +116,7 @@ export function FormCard({
           <div
             className={cn(
               "absolute flex flex-col items-center justify-center",
+              size === 'xs' && "gap-0.5 text-[10px]",
               size === 'sm' && "gap-1 text-xs",
               size === 'md' && "gap-2 text-sm",
               size === 'lg' && "gap-3 text-base",

@@ -29,7 +29,7 @@ export function FormTextarea({
 }: FormTextareaProps) {
   const [count, setCount] = useState(0)
   const cardSize = useCardSize()
-  const defaultRows = cardSize === 'sm' ? 2 : 3
+  const defaultRows = cardSize === 'xs' ? 1 : cardSize === 'sm' ? 2 : 3
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setCount(e.target.value.length)
