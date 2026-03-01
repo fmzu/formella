@@ -13,7 +13,7 @@ const CARD_SIZE = {
 
 // 安全エリアのパディング率（形状ごと）
 const SAFE_AREA_PADDING = {
-  heart: { top: '30%', left: '20%', right: '20%', bottom: '15%' },
+  heart: { top: '22%', left: '18%', right: '18%', bottom: '28%' },
   circle: { top: '15%', left: '15%', right: '15%', bottom: '15%' },
   ellipse: { top: '20%', left: '12%', right: '12%', bottom: '20%' },
 } as const
@@ -122,13 +122,11 @@ function getShapeStyles(shape: CardShape): CSSProperties {
         borderRadius: '50%',
         aspectRatio: '1',
         backgroundColor: 'var(--formella-primary)',
-        border: '3px solid var(--formella-border)',
       }
     case 'ellipse':
       return {
         borderRadius: '50%',
         backgroundColor: 'var(--formella-primary)',
-        border: '3px solid var(--formella-border)',
       }
   }
 }
