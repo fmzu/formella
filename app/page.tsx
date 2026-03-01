@@ -2,9 +2,8 @@ import {
   HeartCard,
   CircleCard,
   EllipseCard,
-  FormInput,
+  FormTextarea,
   FormButton,
-  FormLabel,
 } from "@/components/formella"
 
 export default function Home() {
@@ -18,26 +17,23 @@ export default function Home() {
           <h2 className="text-2xl font-semibold mb-8 text-center">HeartCard（sm / md / lg）</h2>
           <div className="flex flex-wrap gap-8 justify-center items-end">
             <div className="text-center">
-              <HeartCard size="sm" theme="valentine">
-                <FormLabel>名前</FormLabel>
-                <FormInput placeholder="入力" />
-                <FormButton>送る</FormButton>
+              <HeartCard size="sm" theme="valentine" label="名前">
+                <FormTextarea placeholder="メッセージを入力" />
+                <FormButton>保存</FormButton>
               </HeartCard>
               <p className="mt-4 text-sm text-gray-500">sm</p>
             </div>
             <div className="text-center">
-              <HeartCard size="md" theme="valentine">
-                <FormLabel>名前</FormLabel>
-                <FormInput placeholder="入力" />
-                <FormButton>送る</FormButton>
+              <HeartCard size="md" theme="valentine" label="名前">
+                <FormTextarea placeholder="メッセージを入力" />
+                <FormButton>保存</FormButton>
               </HeartCard>
               <p className="mt-4 text-sm text-gray-500">md</p>
             </div>
             <div className="text-center">
-              <HeartCard size="lg" theme="valentine">
-                <FormLabel>名前</FormLabel>
-                <FormInput placeholder="入力" />
-                <FormButton>送る</FormButton>
+              <HeartCard size="lg" theme="valentine" label="名前">
+                <FormTextarea placeholder="メッセージを入力" />
+                <FormButton>保存</FormButton>
               </HeartCard>
               <p className="mt-4 text-sm text-gray-500">lg</p>
             </div>
@@ -49,26 +45,23 @@ export default function Home() {
           <h2 className="text-2xl font-semibold mb-8 text-center">CircleCard（sm / md / lg）</h2>
           <div className="flex flex-wrap gap-8 justify-center items-end">
             <div className="text-center">
-              <CircleCard size="sm" theme="ocean">
-                <FormLabel>名前</FormLabel>
-                <FormInput placeholder="入力" />
-                <FormButton>OK</FormButton>
+              <CircleCard size="sm" theme="ocean" label="名前">
+                <FormTextarea placeholder="メッセージを入力" />
+                <FormButton>保存</FormButton>
               </CircleCard>
               <p className="mt-4 text-sm text-gray-500">sm</p>
             </div>
             <div className="text-center">
-              <CircleCard size="md" theme="ocean">
-                <FormLabel>名前</FormLabel>
-                <FormInput placeholder="入力" />
-                <FormButton>OK</FormButton>
+              <CircleCard size="md" theme="ocean" label="名前">
+                <FormTextarea placeholder="メッセージを入力" />
+                <FormButton>保存</FormButton>
               </CircleCard>
               <p className="mt-4 text-sm text-gray-500">md</p>
             </div>
             <div className="text-center">
-              <CircleCard size="lg" theme="ocean">
-                <FormLabel>名前</FormLabel>
-                <FormInput placeholder="入力" />
-                <FormButton>OK</FormButton>
+              <CircleCard size="lg" theme="ocean" label="名前">
+                <FormTextarea placeholder="メッセージを入力" />
+                <FormButton>保存</FormButton>
               </CircleCard>
               <p className="mt-4 text-sm text-gray-500">lg</p>
             </div>
@@ -80,26 +73,23 @@ export default function Home() {
           <h2 className="text-2xl font-semibold mb-8 text-center">EllipseCard（sm / md / lg）</h2>
           <div className="flex flex-wrap gap-8 justify-center items-end">
             <div className="text-center">
-              <EllipseCard size="sm" theme="nature">
-                <FormLabel>名前</FormLabel>
-                <FormInput placeholder="入力" />
-                <FormButton>OK</FormButton>
+              <EllipseCard size="sm" theme="nature" label="名前">
+                <FormTextarea placeholder="メッセージを入力" />
+                <FormButton>保存</FormButton>
               </EllipseCard>
               <p className="mt-4 text-sm text-gray-500">sm</p>
             </div>
             <div className="text-center">
-              <EllipseCard size="md" theme="nature">
-                <FormLabel>名前</FormLabel>
-                <FormInput placeholder="入力" />
-                <FormButton>OK</FormButton>
+              <EllipseCard size="md" theme="nature" label="名前">
+                <FormTextarea placeholder="メッセージを入力" />
+                <FormButton>保存</FormButton>
               </EllipseCard>
               <p className="mt-4 text-sm text-gray-500">md</p>
             </div>
             <div className="text-center">
-              <EllipseCard size="lg" theme="nature">
-                <FormLabel>名前</FormLabel>
-                <FormInput placeholder="入力" />
-                <FormButton>OK</FormButton>
+              <EllipseCard size="lg" theme="nature" label="名前">
+                <FormTextarea placeholder="メッセージを入力" />
+                <FormButton>保存</FormButton>
               </EllipseCard>
               <p className="mt-4 text-sm text-gray-500">lg</p>
             </div>

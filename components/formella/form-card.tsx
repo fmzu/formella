@@ -21,11 +21,20 @@ const SAFE_AREA_PADDING = {
 // ハート型SVGクリップパスのID
 const HEART_CLIP_ID = "formella-heart-clip"
 
+// ラベルバッジのサイズ別スタイル
+const LABEL_BADGE_SIZE = {
+  sm: "px-2 py-0.5 text-[10px]",
+  md: "px-3 py-0.5 text-xs",
+  lg: "px-4 py-1 text-sm",
+} as const
+
 export type CardShape = 'heart' | 'circle' | 'ellipse'
 export type CardSize = 'sm' | 'md' | 'lg'
 export type CardOverflow = 'hidden' | 'scroll' | 'visible'
 
 export interface FormCardBaseProps {
+  /** カード上端に表示するラベル */
+  label?: ReactNode
   size?: CardSize
   theme?: ThemeName
   color?: string
@@ -43,6 +52,7 @@ export interface FormCardProps extends FormCardBaseProps {
 
 export function FormCard({
   shape,
+  label,
   size = 'md',
   theme,
   color,
@@ -82,36 +92,54 @@ export function FormCard({
           </defs>
         </svg>
       )}
-      <div
-        className={cn(
-          "relative inline-flex items-center justify-center",
-          shadow && "drop-shadow-lg",
-          className,
-        )}
-        style={{
-          ...style,
-          ...shapeStyles,
-        }}
-      >
-        {/* 安全エリア: ここにフォーム要素が入る */}
+      {/* 外側ラッパー: ラベルバッジはこの中でclip-pathの外に配置 */}
+      <div className="relative inline-block" style={style}>
         <div
           className={cn(
-            "absolute flex flex-col items-center justify-center",
-            size === 'sm' && "gap-1 text-xs",
-            size === 'md' && "gap-2 text-sm",
-            size === 'lg' && "gap-3 text-base",
+            "relative w-full h-full inline-flex items-center justify-center",
+            shadow && "drop-shadow-lg",
+            className,
           )}
-          style={{
-            top: padding.top,
-            left: padding.left,
-            right: padding.right,
-            bottom: padding.bottom,
-            overflow: overflow,
-            color: 'var(--formella-text)',
-          }}
+          style={shapeStyles}
         >
-          {children}
+          {/* 安全エリア: ここにフォーム要素が入る */}
+          <div
+            className={cn(
+              "absolute flex flex-col items-center justify-center",
+              size === 'sm' && "gap-1 text-xs",
+              size === 'md' && "gap-2 text-sm",
+              size === 'lg' && "gap-3 text-base",
+            )}
+            style={{
+              top: padding.top,
+              left: padding.left,
+              right: padding.right,
+              bottom: padding.bottom,
+              overflow: overflow,
+              color: 'var(--formella-text)',
+            }}
+          >
+            {children}
+          </div>
         </div>
+        {/* ラベルバッジ: clip-pathの外、カード上端に重なる */}
+        {label && (
+          <div
+            className={cn(
+              "absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 z-10",
+              "rounded-full font-semibold whitespace-nowrap",
+              "shadow-sm border",
+              LABEL_BADGE_SIZE[size],
+            )}
+            style={{
+              backgroundColor: 'var(--formella-primary)',
+              borderColor: 'var(--formella-border)',
+              color: 'var(--formella-text)',
+            }}
+          >
+            {label}
+          </div>
+        )}
       </div>
     </>
   )
