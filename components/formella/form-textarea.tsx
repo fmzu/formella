@@ -2,6 +2,7 @@
 
 import { type TextareaHTMLAttributes, useState } from "react"
 import { cn } from "@/lib/utils"
+import { useCardSize } from "./form-card"
 
 export type FormTextareaVariant = 'default' | 'underline' | 'ghost'
 
@@ -21,11 +22,14 @@ export function FormTextarea({
   variant = 'default',
   showCount = false,
   maxLength,
+  rows,
   className,
   onChange,
   ...props
 }: FormTextareaProps) {
   const [count, setCount] = useState(0)
+  const cardSize = useCardSize()
+  const defaultRows = cardSize === 'sm' ? 2 : 3
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setCount(e.target.value.length)
@@ -44,7 +48,7 @@ export function FormTextarea({
         )}
         maxLength={maxLength}
         onChange={handleChange}
-        rows={3}
+        rows={rows ?? defaultRows}
         {...props}
       />
       {showCount && (

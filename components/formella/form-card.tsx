@@ -1,8 +1,12 @@
 "use client"
 
-import { type CSSProperties, type ReactNode } from "react"
+import { type CSSProperties, type ReactNode, createContext, useContext } from "react"
 import { cn } from "@/lib/utils"
 import { themes, defaultTheme, type ThemeName } from "./themes"
+
+// カードサイズをchildrenに伝えるコンテキスト
+const CardSizeContext = createContext<CardSize | null>(null)
+export function useCardSize() { return useContext(CardSizeContext) }
 
 // カード全体のサイズ（px）
 const CARD_SIZE = {
@@ -13,9 +17,9 @@ const CARD_SIZE = {
 
 // 安全エリアのパディング率（形状ごと）
 const SAFE_AREA_PADDING = {
-  heart: { top: '22%', left: '18%', right: '18%', bottom: '28%' },
+  heart: { top: '20%', left: '22%', right: '22%', bottom: '28%' },
   circle: { top: '15%', left: '15%', right: '15%', bottom: '15%' },
-  ellipse: { top: '20%', left: '12%', right: '12%', bottom: '20%' },
+  ellipse: { top: '16%', left: '12%', right: '12%', bottom: '14%' },
 } as const
 
 // ハート型SVGクリップパスのID
@@ -109,7 +113,9 @@ export function FormCard({
               color: 'var(--formella-text)',
             }}
           >
-            {children}
+            <CardSizeContext value={size}>
+              {children}
+            </CardSizeContext>
           </div>
         </div>
       </div>

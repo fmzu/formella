@@ -1,5 +1,5 @@
 // カードコンポーネント
-export { FormCard } from "./form-card"
+export { FormCard, useCardSize } from "./form-card"
 export { HeartCard } from "./heart-card"
 export { CircleCard } from "./circle-card"
 export { EllipseCard } from "./ellipse-card"
