@@ -20,7 +20,7 @@ export default function Home() {
           <div className="flex flex-wrap gap-8 justify-center items-end">
             <div className="text-center">
               <HeartCard size="xs" theme="valentine">
-                <FormTextarea placeholder="入力" />
+                <FormInput placeholder="入力" />
               </HeartCard>
               <p className="mt-4 text-sm text-gray-500">xs</p>
             </div>
@@ -57,7 +57,7 @@ export default function Home() {
           <div className="flex flex-wrap gap-8 justify-center items-end">
             <div className="text-center">
               <CircleCard size="xs" theme="ocean">
-                <FormTextarea placeholder="入力" />
+                <FormInput placeholder="入力" />
               </CircleCard>
               <p className="mt-4 text-sm text-gray-500">xs</p>
             </div>
@@ -94,7 +94,7 @@ export default function Home() {
           <div className="flex flex-wrap gap-8 justify-center items-end">
             <div className="text-center">
               <EllipseCard size="xs" theme="nature">
-                <FormTextarea placeholder="入力" />
+                <FormInput placeholder="入力" />
               </EllipseCard>
               <p className="mt-4 text-sm text-gray-500">xs</p>
             </div>

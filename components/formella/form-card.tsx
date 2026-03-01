@@ -19,20 +19,20 @@ const CARD_SIZE = {
 // 安全エリアのパディング（形状・サイズごと）
 const SAFE_AREA_PADDING: Record<CardShape, Record<CardSize, { top: string; left: string; right: string; bottom: string }>> = {
   heart: {
-    xs: { top: '22%', left: '24%', right: '24%', bottom: '30%' },
-    sm: { top: '20%', left: '22%', right: '22%', bottom: '28%' },
+    xs: { top: '18%', left: '26%', right: '26%', bottom: '34%' },
+    sm: { top: '22%', left: '22%', right: '22%', bottom: '32%' },
     md: { top: '20%', left: '22%', right: '22%', bottom: '28%' },
     lg: { top: '20%', left: '22%', right: '22%', bottom: '28%' },
   },
   circle: {
-    xs: { top: '18%', left: '18%', right: '18%', bottom: '18%' },
+    xs: { top: '12%', left: '12%', right: '12%', bottom: '12%' },
     sm: { top: '15%', left: '15%', right: '15%', bottom: '15%' },
     md: { top: '15%', left: '15%', right: '15%', bottom: '15%' },
     lg: { top: '15%', left: '15%', right: '15%', bottom: '15%' },
   },
   ellipse: {
-    xs: { top: '18%', left: '14%', right: '14%', bottom: '16%' },
-    sm: { top: '16%', left: '12%', right: '12%', bottom: '14%' },
+    xs: { top: '12%', left: '8%', right: '8%', bottom: '10%' },
+    sm: { top: '16%', left: '14%', right: '14%', bottom: '16%' },
     md: { top: '16%', left: '12%', right: '12%', bottom: '14%' },
     lg: { top: '16%', left: '12%', right: '12%', bottom: '14%' },
   },

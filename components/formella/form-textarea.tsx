@@ -42,7 +42,7 @@ export function FormTextarea({
         className={cn(
           "w-full px-3 py-2 text-sm outline-none resize-none placeholder:text-gray-400",
           "text-[var(--formella-text)]",
-          "focus:ring-2 focus:ring-[var(--formella-border)] focus:ring-opacity-50",
+          "focus:ring-1 focus:ring-[var(--formella-border)]/40",
           variantClasses[variant],
           className,
         )}
