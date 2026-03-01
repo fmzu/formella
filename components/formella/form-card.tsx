@@ -38,6 +38,7 @@ export interface FormCardBaseProps {
 
 export interface FormCardProps extends FormCardBaseProps {
   shape: CardShape
+  aspectRatio?: number
 }
 
 export function FormCard({
@@ -48,6 +49,7 @@ export function FormCard({
   borderColor,
   shadow = true,
   overflow = 'hidden',
+  aspectRatio,
   className,
   children,
 }: FormCardProps) {
@@ -62,7 +64,7 @@ export function FormCard({
     '--formella-text': resolved.text,
     '--formella-input-bg': resolved.inputBg,
     width: cardSize.width,
-    height: shape === 'ellipse' ? cardSize.height * 0.75 : cardSize.height,
+    height: shape === 'ellipse' ? cardSize.width * (aspectRatio ?? 0.75) : cardSize.height,
   } as CSSProperties
 
   // 形状ごとのクラスとスタイル
@@ -93,7 +95,12 @@ export function FormCard({
       >
         {/* 安全エリア: ここにフォーム要素が入る */}
         <div
-          className="absolute flex flex-col items-center justify-center gap-2"
+          className={cn(
+            "absolute flex flex-col items-center justify-center",
+            size === 'sm' && "gap-1 text-xs",
+            size === 'md' && "gap-2 text-sm",
+            size === 'lg' && "gap-3 text-base",
+          )}
           style={{
             top: padding.top,
             left: padding.left,
