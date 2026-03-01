@@ -20,7 +20,7 @@ const CARD_SIZE = {
 const SAFE_AREA_PADDING: Record<CardShape, Record<CardSize, { top: string; left: string; right: string; bottom: string }>> = {
   heart: {
     xs: { top: '18%', left: '26%', right: '26%', bottom: '34%' },
-    sm: { top: '22%', left: '22%', right: '22%', bottom: '32%' },
+    sm: { top: '22%', left: '22%', right: '22%', bottom: '26%' },
     md: { top: '20%', left: '22%', right: '22%', bottom: '28%' },
     lg: { top: '20%', left: '22%', right: '22%', bottom: '28%' },
   },
@@ -32,7 +32,7 @@ const SAFE_AREA_PADDING: Record<CardShape, Record<CardSize, { top: string; left:
   },
   ellipse: {
     xs: { top: '12%', left: '8%', right: '8%', bottom: '10%' },
-    sm: { top: '16%', left: '14%', right: '14%', bottom: '16%' },
+    sm: { top: '16%', left: '14%', right: '14%', bottom: '14%' },
     md: { top: '16%', left: '12%', right: '12%', bottom: '14%' },
     lg: { top: '16%', left: '12%', right: '12%', bottom: '14%' },
   },
